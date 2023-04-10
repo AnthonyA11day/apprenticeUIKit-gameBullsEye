@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "scooter.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Button-Normal@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

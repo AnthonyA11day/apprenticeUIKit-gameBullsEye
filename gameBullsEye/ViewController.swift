@@ -24,26 +24,26 @@ class ViewController: UIViewController {
         view.backgroundColor = .systemGray5
         startNewRound()
         
-//        let thumbImageNormal = UIImage(named: "car")!
-//        slider.setThumbImage(thumbImageNormal, for: .normal)
-//        
-//        let thumbImageHighlighted = UIImage(named: "motorbike")!
-//        slider.setThumbImage(thumbImageHighlighted, for: .highlighted)
-//
-//        let insets = UIEdgeInsets(
-//          top: 0,
-//          left: 14,
-//          bottom: 0,
-//          right: 14)
-//        
-//        let trackLeftImage = UIImage(named: "rickshaw")!
-//        let trackLeftResizable = trackLeftImage.resizableImage(
-//          withCapInsets: insets)
-//        slider.setMinimumTrackImage(trackLeftResizable, for: .normal)
-//        let trackRightImage = UIImage(named: "scooter")!
-//        let trackRightResizable = trackRightImage.resizableImage(
-//          withCapInsets: insets)
-//        slider.setMaximumTrackImage(trackRightResizable, for: .normal)
+        let thumbImageNormal = UIImage(named: "SliderThumb-Normal")!
+        slider.setThumbImage(thumbImageNormal, for: .normal)
+        
+        let thumbImageHighlighted = UIImage(named: "SliderThumb-Highlighted")!
+        slider.setThumbImage(thumbImageHighlighted, for: .highlighted)
+
+        let insets = UIEdgeInsets(
+          top: 0,
+          left: 14,
+          bottom: 0,
+          right: 14)
+        
+        let trackLeftImage = UIImage(named: "SliderTrackLeft")!
+        let trackLeftResizable = trackLeftImage.resizableImage(
+          withCapInsets: insets)
+        slider.setMinimumTrackImage(trackLeftResizable, for: .normal)
+        let trackRightImage = UIImage(named: "SliderTrackRight")!
+        let trackRightResizable = trackRightImage.resizableImage(
+          withCapInsets: insets)
+        slider.setMaximumTrackImage(trackRightResizable, for: .normal)
     }
     
     @IBAction func showAlert() {
@@ -102,11 +102,23 @@ class ViewController: UIViewController {
     }
     
     func startNewRound() {
+        
+        //anomation
+        let transition = CATransition()
+          transition.type = CATransitionType.fade
+          transition.duration = 1
+          transition.timingFunction = CAMediaTimingFunction(
+            name: CAMediaTimingFunctionName.easeOut)
+          view.layer.add(transition, forKey: nil)
+        
+        //new round
         targetValue = Int.random(in: 1...100)
 //        currentValue = 50
 //        currentValue = lround(Double(slider.value))
         slider.value = Float(currentValue)
         updateLabels()
+        
+        
     }
     
     func updateLabels() {
